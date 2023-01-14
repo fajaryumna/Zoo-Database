@@ -5,6 +5,14 @@
 
 <h2 class="my-4 bg-white text-dark rounded-2 text-center">Service Information</h2>
 
+{{-- <div class="row align-items-center my-3">
+    <div class="col-auto">
+        <form action="{{ route('service.index') }}" method="GET">
+            <input type="text" id="search" name="search" class="form-control" value="{{request('search')}}">
+        </form>
+    </div>
+</div> --}}
+
 @if($message = Session::get('success'))
 <div class="alert alert-success mt-3" role="alert">
     {{ $message }}

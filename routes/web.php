@@ -20,9 +20,9 @@ use App\Http\Controllers\ServiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware(['auth'])->group(function(){
     // route for zoo keeper 

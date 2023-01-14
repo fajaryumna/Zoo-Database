@@ -12,11 +12,19 @@ class AnimalController extends Controller
 {
     public function index(Request $request) {
         if ($request->has('search')) {
-            $datas = DB::table('animal')->where('name','like',"%".$request->search."%")->get();
+            $datas = DB::table('animal')
+            ->where('name','like',"%".$request->search."%")
+            ->orWhere('species','like',"%".$request->search."%")
+            ->paginate(3);
+            // ->get();
+
             // $request->search;
             // $datas = DB::select("select * from animal where type like '%'.search.'%'");
         }else{
-            $datas = DB::select('select * from animal WHERE deleted_at is null');
+            $datas = DB::table('animal')
+            ->where('deleted_at', null)
+            ->paginate(3);
+            // $datas = DB::select('select * from animal WHERE deleted_at is null');
         }
         
         return view('animal.index',['datas'=> $datas]);

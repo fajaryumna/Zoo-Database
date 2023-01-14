@@ -24,7 +24,7 @@
 </div>
 @endif
 
-<table class="table text-center bg-light table-hover mt-2">
+<table id="myDataTable" class="table text-center bg-light table-hover mt-2">
     <thead>
         <tr>
             <th>Animal ID</th>
@@ -86,4 +86,7 @@
         @endforeach
     </tbody>
 </table>
+
+{{ $datas->links() }}
+
 @stop
